@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h4>Approve leave requests</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <form>
+      <div class="form-group">
+        <label for="select-user">Select User</label>
+        <select name="users" id="select-user">
+          <option value="pratik">Pratik Sathaye</option>
+          <option value="siddhant">Siddhant</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="leave-requests">Leave Requests</label>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>No. of Days</th>
+              <th>Type</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let request of leaveRequests">
+              <td>{{ request.formatDate(request.fromDate) }}</td>
+              <td>{{ request.formatDate(request.toDate) }}</td>
+              <td>{{ request.getNumberOfDays() }}</td>
+              <td>{{ request.getType() }}</td>
+              <td
+                *ngIf="
+                  request.status !== 'approved' && request.status !== 'denied'
+                "
+              >
+                <a
+                  style="cursor: pointer; color: green"
+                  (click)="approveRequest(request)"
+                  >Approve</a
+                >
+                |
+                <a
+                  style="cursor: pointer; color: red"
+                  (click)="denyRequest(request)"
+                  >Deny</a
+                >
+              </td>
+              <td
+                *ngIf="
+                  request.status === 'approved' || request.status === 'denied'
+                "
+              >
+                {{ request.status }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+</div>

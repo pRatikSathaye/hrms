@@ -1,0 +1,40 @@
+<h4>Apply for leave</h4>
+<form>
+  <div class="form-group">
+    <label for="type">Select Type</label>
+    <select
+      id="type"
+      class="custom-select form-control"
+      [(ngModel)]="leaveType"
+      name="leaveType"
+    >
+      <option value="casual">Casual Leave</option>
+      <option value="compensatory">Compensatory Leave</option>
+      <option value="earned">Earned Leave</option>
+      <option value="without-pay">Without Pay Leave</option>
+      <option value="paternity">Paternity Leave</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="from">From</label>
+    <input
+      class="form-control"
+      [(ngModel)]="fromDate"
+      name="fromDate"
+      id="from"
+      type="date"
+    />
+  </div>
+  <div class="form-group">
+    <label for="to">To</label>
+    <input
+      class="form-control"
+      [(ngModel)]="toDate"
+      name="toDatepicker"
+      id="to"
+      type="date"
+    />
+  </div>
+  <button class="btn btn-primary" (click)="onApplyLeave()">Apply</button>
+</form>

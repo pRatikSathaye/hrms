@@ -1,0 +1,22 @@
+<button class="btn btn-primary" (click)="navigateToApplyLeave()">
+  Apply for leave
+</button>
+<hr />
+<table class="table">
+  <thead>
+    <tr>
+      <th>Leave Type</th>
+      <th>From Date</th>
+      <th>To Date</th>
+      <th>No. of Days</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let leave of leaves">
+      <td>{{ leave.getType() }}</td>
+      <td>{{ leave.formatDate(leave.fromDate) }}</td>
+      <td>{{ leave.formatDate(leave.toDate) }}</td>
+      <td>{{ leave.getNumberOfDays() }}</td>
+    </tr>
+  </tbody>
+</table>
