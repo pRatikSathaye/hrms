@@ -25,6 +25,5 @@ export class LeavesService {
   addLeaveRequest(leave: LeaveRequest) {
     this.leaves.push(leave);
     this.leaveApplied.emit(leave);
-    // this.leaves = this.leaves.slice()
   }
 }

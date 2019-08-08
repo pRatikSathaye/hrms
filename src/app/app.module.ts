@@ -7,21 +7,21 @@ import { AppComponent } from "./app.component";
 import { ImpInfoComponent } from "./imp-info/imp-info.component";
 import { CardsComponent } from "./cards/cards.component";
 import { CardComponent } from "./cards/card/card.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
+import { ProfileComponent } from "./profile/profile.component";
 import { IndexComponent } from "./index/index.component";
 import { NewLeaveRequestComponent } from "./leaves/new-leave-request/new-leave-request.component";
 import { LeavesComponent } from "./leaves/leaves.component";
 import { LeavesService } from "./services/leaves.service";
 import { HeaderComponent } from "./header/header.component";
-import { MarkAttendanceComponent } from "./mark-attendance/mark-attendance.component";
+import { MarkPastAttendanceComponent } from "./mark-past-attendance/mark-past-attendance.component";
 import { ApproveLeaveRequestComponent } from "./approve-leave-request/approve-leave-request.component";
 
 const appRoutes: Route[] = [
   { path: "", component: IndexComponent },
-  { path: "dashboard", component: DashboardComponent },
+  { path: "profile", component: ProfileComponent },
   { path: "leaves", component: LeavesComponent },
   { path: "new-leave-request", component: NewLeaveRequestComponent },
-  { path: "mark-attendance", component: MarkAttendanceComponent },
+  { path: "mark-past-attendance", component: MarkPastAttendanceComponent },
   { path: "approve-leave-requests", component: ApproveLeaveRequestComponent }
 ];
 
@@ -31,12 +31,12 @@ const appRoutes: Route[] = [
     ImpInfoComponent,
     CardsComponent,
     CardComponent,
-    DashboardComponent,
+    ProfileComponent,
     IndexComponent,
     NewLeaveRequestComponent,
     LeavesComponent,
     HeaderComponent,
-    MarkAttendanceComponent,
+    MarkPastAttendanceComponent,
     ApproveLeaveRequestComponent
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],

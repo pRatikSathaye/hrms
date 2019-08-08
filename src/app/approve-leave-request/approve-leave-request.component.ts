@@ -17,11 +17,9 @@ export class ApproveLeaveRequestComponent implements OnInit {
 
   approveRequest(request: LeaveRequest) {
     request.status = "approved";
-    console.log("Request Approved ");
   }
 
   denyRequest(request: LeaveRequest) {
     request.status = "denied";
-    console.log("Request Denied");
   }
 }

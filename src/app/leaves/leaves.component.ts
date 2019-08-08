@@ -15,7 +15,6 @@ export class LeavesComponent implements OnInit {
   constructor(private router: Router, private leavesService: LeavesService) {}
 
   ngOnInit() {
-    console.log("Initialize", this.leaves);
     this.leaves = this.leavesService.getLeaves();
 
     this.leavesService.leaveApplied.subscribe((leave: LeaveRequest) => {

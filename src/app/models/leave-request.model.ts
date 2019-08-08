@@ -23,7 +23,6 @@ export class LeaveRequest {
   }
 
   getType(): string {
-    console.log("type", leaveTypesMapping[this.type], this.type);
     return leaveTypesMapping[this.type];
   }
 
@@ -31,7 +30,6 @@ export class LeaveRequest {
     let diff =
       Date.parse(this.toDate.toDateString()) -
       Date.parse(this.fromDate.toDateString());
-    console.log("diff", diff);
     return Math.floor(diff / 86400000);
   }
 }

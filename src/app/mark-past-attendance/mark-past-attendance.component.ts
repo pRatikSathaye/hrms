@@ -5,14 +5,15 @@ import { PastAttendance } from "../models/past-attendance.model";
 import { Subscription } from "rxjs";
 
 @Component({
-  selector: "app-mark-attendance",
-  templateUrl: "./mark-attendance.component.html",
-  styleUrls: ["./mark-attendance.component.css"]
+  selector: "app-mark-past-attendance",
+  templateUrl: "./mark-past-attendance.component.html",
+  styleUrls: ["./mark-past-attendance.component.css"]
 })
-export class MarkAttendanceComponent implements OnInit, OnDestroy {
+export class MarkPastAttendanceComponent implements OnInit, OnDestroy {
   daysSelected: number = 0;
   attendances: PastAttendance[] = [];
   subscription: Subscription;
+  forMultipleDays: boolean = false;
 
   constructor(private attendanceService: PastAttendanceService) {}
 
@@ -30,16 +31,21 @@ export class MarkAttendanceComponent implements OnInit, OnDestroy {
 
   // ACTIONS
   onSubmit(form: NgForm) {
-    console.log(form);
     let startDate = new Date(form.value.startDate).getTime();
     let endDate = new Date(form.value.endDate).getTime();
+    if (!this.forMultipleDays) {
+      endDate = startDate;
+    }
     let diff = endDate - startDate;
-    let numberOfDays = diff / (1000 * 60 * 60 * 24);
-    console.log("Start and End Date in ms", startDate, endDate, numberOfDays);
+    let numberOfDays = diff / (1000 * 60 * 60 * 24) + 1;
     this.daysSelected = numberOfDays;
     let reason = form.value.reason;
-    const pastAttendance = new PastAttendance(startDate, endDate, reason);
-    console.log("Reason", pastAttendance);
+    const pastAttendance = new PastAttendance(
+      startDate,
+      endDate,
+      reason,
+      this.forMultipleDays
+    );
     this.attendanceService.addPastAttendance(pastAttendance);
   }
 }

@@ -24,6 +24,5 @@ export class NewLeaveRequestComponent implements OnInit {
       new Date(this.toDate)
     );
     this.leavesService.addLeaveRequest(leaveRequest);
-    // console.log("Values", this.leaveType, this.fromDate, this.toDate);
   }
 }

@@ -10,12 +10,4 @@ export class IndexComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {}
-
-  navigateToDashboard() {
-    this.router.navigate(["dashboard"]);
-  }
-
-  navigateToLeaves() {
-    this.router.navigate(["leaves"]);
-  }
 }
