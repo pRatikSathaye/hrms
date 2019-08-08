@@ -47,5 +47,6 @@ export class MarkPastAttendanceComponent implements OnInit, OnDestroy {
       this.forMultipleDays
     );
     this.attendanceService.addPastAttendance(pastAttendance);
+    form.reset();
   }
 }
